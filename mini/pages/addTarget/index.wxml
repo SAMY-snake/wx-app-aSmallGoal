@@ -1,0 +1,48 @@
+<!--pages/adddream/index.wxml-->
+<view class="add">
+  <view class="add_content">
+    <view class="add_content_title">基础信息</view>
+    <view class="add_content_main">
+      <van-cell-group>
+        <van-field required clearable title-width="100rpx" label="名称" placeholder="请输入目标名称" model:value="{{ name }}" />
+        <van-field required title-width="100rpx" label="日期" placeholder="请选择目标开始/结束日期" value="{{ params.dateStr }}" bind:tap="openCalendar" />
+        <van-calendar type="range" show="{{ showCalendar }}" bind:close="closeCalendar" bind:confirm="confirmCalendar" />
+      </van-cell-group>
+    </view>
+  </view>
+  <view class="add_content">
+    <view class="add_content_title">
+      <text>目标明细</text>
+      <van-icon name="add-o" bind:tap="openSubModal" />
+    </view>
+    <view class="add_content_main">
+      <van-cell-group>
+        <van-swipe-cell wx:for="{{subList}}" wx:key="index" right-width="{{120}}">
+          <van-cell title-width="80rpx" title="{{index+1}}" value="{{item.content}}" />
+          <view slot="right" class="van-swipe-cell__right">
+            <van-button type="primary" data-item="{{item}}" bind:tap="openSubModal">修改</van-button>
+            <van-button type="danger" data-index="{{index}}" bind:tap="deleteSubItem">删除</van-button>
+          </view>
+        </van-swipe-cell>
+      </van-cell-group>
+    </view>
+  </view>
+  <van-popup round closeable close-icon="close" show="{{ showSubModal }}" bind:close="closeSubModal">
+    <view class="sub-content">
+      <van-cell-group>
+        <van-field required clearable show-word-limit type="textarea" maxlength="{{100}}" autosize="{{ { minHeight: 80 } }}" title-width="100rpx" label="内容" placeholder="请输入小目标详细内容" model:value="{{ content }}" />
+      </van-cell-group>
+      <view class="btns">
+        <van-button size="mini" type="info" bind:tap="changeSubItem">确定</van-button>
+        <van-button plain size="mini" type="info" bind:tap="closeSubModal">取消</van-button>
+      </view>
+    </view>
+  </van-popup>
+  <view class="btn_modify">
+    <van-button size="small" type="info" bindtap="addItem" wx:if="{{contentshow=='true'&&modifyshow=='true'}}">
+      新增
+    </van-button>
+    <van-button size="small" type="info" bind:tap="editItem" wx:if="{{buttonshow=='true'}}">更新</van-button>
+    <van-button size="small" type="danger" bind:tap="openDelModal" wx:if="{{buttonshow=='true'}}">删除</van-button>
+  </view>
+</view>

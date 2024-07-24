@@ -1,0 +1,38 @@
+/* pages/todayTarget/index.wxss */
+page{
+  height: 100%;
+  background-color: #E7F1FC;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.today-target{
+  width: 650rpx;
+  height: 800rpx;
+  border-radius: 24rpx;
+  background-color: #fff;
+  overflow: hidden;
+}
+.rate-wrap{
+  padding-bottom: 40rpx;
+}
+.subList-wrap{
+  height: 90rpx;
+  padding: 0 24rpx 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.van-swipe-cell__right{
+  width: 120px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.van-swipe-cell__right .van-button--normal{
+  width: 60px;
+  padding: 0;
+}

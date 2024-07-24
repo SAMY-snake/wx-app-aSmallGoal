@@ -1,0 +1,18 @@
+<!--pages/mtydream/index.wxml-->
+<view class="head-wrap">
+  <image src="{{userinfo.avatarUrl || '../../image/love.png'}}" bind:tap="toLogin"></image>
+  <text>{{userinfo.nickName || '未授权'}}</text>
+</view>
+<view class="mydream" wx:if="{{msgList.length>0}}">
+  <view class="mydream_main">
+    <view class="mydream_main_container" wx:for="{{msgList}}" wx:key="index" data-item="{{item}}" bindtap="toDetail">
+      <view class="mydream_main_container_size">{{item.name}}</view>
+    </view>
+  </view>
+</view>
+<view class="notdata" wx:else="">
+  <text>还没有小目标~ 快来定制吧！</text>
+</view>
+<view bindtap="addTarget" class="mydream_add">
+  <van-icon name="plus" size="60rpx" />
+</view>

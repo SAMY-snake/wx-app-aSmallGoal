@@ -1,0 +1,21 @@
+<!--pages/todayTarget/index.wxml-->
+<view class="today-target">
+  <van-collapse value="{{ activeNames }}" bind:change="onChange">
+    <van-collapse-item wx:for="{{list}}" wx:key="index" title="{{item.name}}" name="{{index}}">
+      <view class="rate-wrap">
+        <van-progress percentage="{{item.rate}}" />
+      </view>
+      <van-swipe-cell wx:for="{{item.list}}" wx:key="index2" wx:for-index="index2" wx:for-item="item2" right-width="{{120}}">
+        <view class="subList-wrap">
+          <text>{{item2.content}}</text>
+          <van-tag type="success" wx:if="{{item2.isDone}}">已完成</van-tag>
+          <van-tag type="warning" wx:else>未完成</van-tag>
+        </view>
+        <view slot="right" class="van-swipe-cell__right">
+          <van-button type="primary" data-item="{{item}}" data-subid="{{item2.id}}" bind:tap="doneItem">完成</van-button>
+          <van-button type="danger" data-item="{{item}}"  data-subid="{{item2.id}}"  bind:tap="failItem">未完成</van-button>
+        </view>
+      </van-swipe-cell>
+    </van-collapse-item>
+  </van-collapse>
+</view>

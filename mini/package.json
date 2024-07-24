@@ -1,0 +1,24 @@
+{
+  "name": "test-1",
+  "miniprogram": "dist",
+  "version": "1.0.0",
+  "description": "https://doc.weixin.qq.com/doc/w3_ADIAgwaLAFcQ7H40dHtTQKDmVauin?scode=AJEAIQdfAAotWNtZMWADIAgwaLAFc",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SAMY-snake/applet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SAMY-snake/applet/issues"
+  },
+  "homepage": "https://github.com/SAMY-snake/applet#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.11.4",
+    "moment": "^2.30.1"
+  }
+}
